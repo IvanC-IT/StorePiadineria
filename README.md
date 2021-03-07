@@ -1,4 +1,4 @@
-# StorePiadineria
+# Building a WebApp for store wich sale Piadine with Spring Boot, Spring Security, JWT, RestAPi
 
 ## Prerequisites
  Spring Boot;
