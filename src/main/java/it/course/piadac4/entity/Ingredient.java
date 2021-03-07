@@ -1,0 +1,36 @@
+package it.course.piadac4.entity;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Entity
+@Table(name="INGREDIENT")
+@Getter @Setter @AllArgsConstructor @NoArgsConstructor
+public class Ingredient {
+	
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="INGREDIENT_ID")
+	private Long ingredientId;
+	
+	@Column(name="INGREDIENT_NAME", unique=true, nullable=false, length=50)
+	private String ingredientName;
+	
+	@ManyToOne(fetch=FetchType.EAGER)
+	@JoinColumn(name="CATEGORY_ID", nullable=false)
+	private Category category;
+	
+	
+}
